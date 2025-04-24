@@ -1,0 +1,22 @@
+# Technical Design Document
+- Have added atleast 1 new "antagonist" role to play as.
+	- As to the knowledge I already have, there is a "jobs" folder somewhere. When content is added, will automatically appear.
+	- If above isnt the case, will have to code this into the UI itself.
+- Have added atleast 1 new "Station Crew" role to play as.
+	- Read above.
+- Have added an completely new item from scratch with a new sprite, if needed.
+	- There *should* be a list of items somewhere. If it's **not** the case (which is likely), I will have to write them up and add them in somewhere myself.
+- Have understood the basic code and how to change/edit/add code myself as the language itself is very complex.
+	- Plenty of guides, including BYONDs own manual.
+- Have learnt how to make my own map and "adventure-zones".
+	- Mapmaking is difficult! But there's plenty of guides on the internet on how to achieve this.
+- Adding in an improvement and some sort of database to handle certain interactions like bans and warnings.
+	- Not hard; link the interactions up to the database tables.
+- Having made a new chemical or element to use in chemistry/botany.
+	- Same for the jobs thing. There should be a list somewhere that keeps all of these items.
+- Having included a new gamemode to play, something "Survival" or "Murder Mystery" related.
+	- This is something I'd ask ChatGPT at this point, as it's BYOND my understanding ;))))
+- Have basic understanding on how to alter content within the station, or to have different maps with all kinds of special actions
+	- Well; reworking shouldn't be hard- but learning where to find it and make it work is a different task.
+- Having reworked part of the admin panel to my own liking.
+	- Changing the UI to my liking. I bet if I tried hard enough that I am able to make an entire new panel and learn all of the difficult words.
