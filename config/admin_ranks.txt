@@ -99,3 +99,8 @@ Name = CouncilMember
 Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING
+
+Name = Gubby
+Include = EVERYTHING
+Exclude =
+Edit = EVERYTHING
