@@ -28,7 +28,12 @@
 /obj/item/swearing_pass/proc/on_say(mob/user, message, ...)
     if(user.get_active_hand() != src)
         return
-    if(findtext(lowertext(message), "fuck"))
+    var/normalized = lowertext(message)
+    // Remove punctuation at the end (period, exclamation, question mark, etc.)
+    if(length(normalized) && (normalized[length(normalized)] in list(".", "!", "?")))
+        normalized = copytext(normalized, 1, length(normalized))
+    normalized = trim(normalized)
+    if(normalized == "fuck")
         if(!used)
             used = TRUE
             to_chat(user, span_warning("You have used your one and only F bomb pass. Next time, you won't be so lucky!"))
