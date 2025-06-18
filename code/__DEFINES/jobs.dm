@@ -52,6 +52,7 @@
 #define JOB_DISPLAY_ORDER_BRIG_PHYS 32
 #define JOB_DISPLAY_ORDER_AI 33
 #define JOB_DISPLAY_ORDER_CYBORG 34
+#define JOB_DISPLAY_ORDER_METH_DEALER 35
 
 // should check the ones in `\_DEFINES\economy.dm`
 // It's true that bitflags shouldn't be separated in two DEFINES if these are same, but just in case the system can be devided, it's remained separated.
@@ -103,6 +104,8 @@
 #define JOB_NAME_GENETICIST "Geneticist"
 #define JOB_NAME_BRIGPHYSICIAN "Brig Physician"
 #define JOB_NAME_PSYCHIATRIST  "Psychiatrist" // gimmick
+#define JOB_NAME_METH_DEALER "Meth Dealer" // gimmick
+#define JOB_NAME_METH_DEALER_ALT "Meth Chemist" // gimmick
 
 // Security
 #define JOB_NAME_HEADOFSECURITY "Head of Security"
@@ -183,6 +186,7 @@
 #define JOB_HUD_SCIENTIST "scientist"
 #define JOB_HUD_ROBOTICIST "roboticist"
 #define JOB_HUD_EXPLORATIONCREW "explorationcrew"
+#define JOB_HUD_METH_DEALER "methdealer" // gimmick
 
 // Engineering
 #define JOB_HUD_RAWENGINEERING "rawengineering"

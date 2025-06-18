@@ -1229,6 +1229,12 @@ update_label("John Doe", "Clowny")
 	assignment = JOB_NAME_CHEMIST
 	hud_state = JOB_HUD_CHEMIST
 
+/obj/item/card/id/job/meth_dealer
+	name = "Job card (Med) - Meth Dealer"
+	icon_state = "chemist"
+	assignment = JOB_NAME_METH_DEALER
+	hud_state = JOB_HUD_METH_DEALER
+
 /obj/item/card/id/job/geneticist
 	name = "Job card (Med) - Geneticist"
 	icon_state = "gene"
