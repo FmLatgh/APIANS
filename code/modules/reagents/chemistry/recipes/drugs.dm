@@ -60,3 +60,13 @@
 	required_reagents = list(/datum/reagent/medicine/atropine = 1, /datum/reagent/medicine/morphine = 1, /datum/reagent/teslium = 1, /datum/reagent/medicine/tricordrazine =1)
 	required_temp = 575
 	reaction_tags = REACTION_TAG_DRUG
+/datum/chemical_reaction/chugjug
+    name = "Chug Jug"
+    results = list(/datum/reagent/drug/chugjug = 7.5)
+    required_reagents = list(
+        /datum/reagent/drug/methamphetamine = 3,
+        /datum/reagent/drug/happiness = 3,
+        /datum/reagent/drug/ketamine = 1,
+        /datum/reagent/drug/nooartrium = 0.5
+    )
+    reaction_tags = REACTION_TAG_DRUG

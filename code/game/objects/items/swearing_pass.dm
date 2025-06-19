@@ -5,35 +5,40 @@
     icon_state = "nucleardisk"
     var/used = FALSE
 
-/obj/item/swearing_pass/Initialize()
+/obj/item/swearing_pass/Initialize(mapload)
     . = ..()
     // Register signal for when the item is picked up
-    RegisterSignal(src, COMSIG_ITEM_PICKUP, PROC_REF(on_pickup))
+    RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
     RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
 
-/obj/item/swearing_pass/proc/on_pickup(mob/user)
+/obj/item/swearing_pass/proc/on_equip(datum/source, mob/equipper, slot)
+    if(!(slot & ITEM_SLOT_HANDS)) // Only care about hand slots
+        return
     // Listen for speech while held
-    RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(on_say))
+    RegisterSignal(equipper, COMSIG_MOB_SAY, PROC_REF(on_say))
 
-/obj/item/swearing_pass/proc/on_drop(mob/user)
+/obj/item/swearing_pass/proc/on_drop(datum/source, mob/user)
     // Stop listening for speech when dropped
     UnregisterSignal(user, COMSIG_MOB_SAY)
 
 /obj/item/swearing_pass/Destroy()
     // Clean up signals
-    for(var/mob/M in GLOB.mob_list)
+    for(var/mob/M in GLOB.player_list) // More efficient than mob_list
         UnregisterSignal(M, COMSIG_MOB_SAY)
     return ..()
 
-/obj/item/swearing_pass/proc/on_say(mob/user, message, ...)
-    if(user.get_active_hand() != src)
+/obj/item/swearing_pass/proc/on_say(mob/user, list/speech_args)
+    if(user.get_active_held_item() != src && user.get_inactive_held_item() != src)
         return
-    var/normalized = lowertext(message)
-    // Remove punctuation at the end (period, exclamation, question mark, etc.)
-    if(length(normalized) && (normalized[length(normalized)] in list(".", "!", "?")))
-        normalized = copytext(normalized, 1, length(normalized))
-    normalized = trim(normalized)
-    if(normalized == "fuck")
+
+    var/message = lowertext(speech_args[SPEECH_MESSAGE])
+    // Remove punctuation at the end
+    message = replacetext(message, ".", "")
+    message = replacetext(message, "!", "")
+    message = replacetext(message, "?", "")
+    message = trim(message)
+
+    if(message == "fuck")
         if(!used)
             used = TRUE
             to_chat(user, span_warning("You have used your one and only F bomb pass. Next time, you won't be so lucky!"))

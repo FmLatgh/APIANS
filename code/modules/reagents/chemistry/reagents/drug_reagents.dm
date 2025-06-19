@@ -665,3 +665,27 @@
 	REMOVE_TRAIT(affected_mob, TRAIT_NOSTAMCRIT, FROM_NOOARTRIUM)
 	REMOVE_TRAIT(affected_mob, TRAIT_IGNOREDAMAGESLOWDOWN, FROM_NOOARTRIUM)
 	affected_mob.update_sight()
+/datum/reagent/drug/chugjug
+    name = "Chug Jug"
+    description = "A potent cocktail of stimulants and dissociatives. You feel ready to win."
+    reagent_state = LIQUID
+    color = "#1E90FF"
+    chem_flags = CHEMICAL_RNG_FUN | CHEMICAL_RNG_GENERAL
+    taste_description = "victory royale"
+    metabolization_rate = 0.5 * REAGENTS_METABOLISM
+
+    // Example effect: combine effects of meth, happiness, ketamine, and nooartrium
+    on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+        // Methamphetamine effects
+        M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/methamphetamine)
+        ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
+        ADD_TRAIT(M, TRAIT_NOBLOCK, type)
+        // Happiness effects
+        M.Jitter(5 * REM * delta_time)
+        M.hallucination += 2 * REM * delta_time
+        // Ketamine effects
+        M.drowsyness += 1 * REM * delta_time
+        M.hallucination += 5 * REM * delta_time
+        // Nooartrium effect (example: heal some brain damage)
+        M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1 * REM * delta_time)
+        ..()
