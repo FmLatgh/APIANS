@@ -32,7 +32,7 @@ GLOBAL_VAR_INIT(pirates_spawned, FALSE)
 	var/payoff = 0
 	var/initial_send_time = world.time
 	var/response_max_time = rand(4,7) MINUTES
-	priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", SSstation.announcer.get_rand_report_sound())
+	priority_announce("1000 missed calls from: Vimm", "Station Voicemail", SSstation.announcer.get_rand_report_sound())
 	var/datum/comm_message/threat = new
 	var/datum/bank_account/D = SSeconomy.get_budget_account(ACCOUNT_CAR_ID)
 	if(D)
@@ -50,7 +50,7 @@ GLOBAL_VAR_INIT(pirates_spawned, FALSE)
 
 /proc/pirates_answered(datum/comm_message/threat, payoff, ship_name, initial_send_time, response_max_time)
 	if(world.time > initial_send_time + response_max_time)
-		priority_announce("Too late to beg for mercy!",sender_override = ship_name)
+		priority_announce("YARRGH!",sender_override = ship_name)
 		return
 	// Attempted to pay off
 	if(threat?.answered == PIRATE_RESPONSE_PAY)
@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(pirates_spawned, FALSE)
 		if(D.adjust_money(-payoff))
 			priority_announce("Thanks for the credits, landlubbers.", sound = SSstation.announcer.get_rand_alert_sound(), sender_override = ship_name)
 		else
-			priority_announce("Trying to cheat us? You'll regret this!", sound = SSstation.announcer.get_rand_alert_sound(), sender_override = ship_name)
+			priority_announce("Yarr! Something EVIL be HAPPENING TO YE!", sound = SSstation.announcer.get_rand_alert_sound(), sender_override = ship_name)
 			spawn_pirates(threat, TRUE) // insta-spawn!
 
 /proc/spawn_pirates(datum/comm_message/threat, skip_answer_check)
@@ -85,7 +85,7 @@ GLOBAL_VAR_INIT(pirates_spawned, FALSE)
 	var/datum/async_map_generator/template_placer = ship.load(T)
 	template_placer.on_completion(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(after_pirate_spawn), ship, candidates))
 
-	priority_announce("Unidentified armed ship detected near the station.", sound = SSstation.announcer.get_rand_alert_sound())
+	priority_announce("They are here. Hope you're prepared.", sound = SSstation.announcer.get_rand_alert_sound())
 	SSsecurity_level.set_level(SEC_LEVEL_BLACK)
 
 /proc/after_pirate_spawn(datum/map_template/shuttle/pirate/default/ship, list/candidates, datum/async_map_generator/async_map_generator, turf/T)

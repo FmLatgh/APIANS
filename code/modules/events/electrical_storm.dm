@@ -12,7 +12,7 @@
 	announceWhen	= 1
 
 /datum/round_event/electrical_storm/announce(fake)
-	priority_announce("An electrical storm has been detected in your area, please repair potential electronic overloads.", "Electrical Storm Alert", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("Message to command: zip zap zop", "Fortnite Storm", SSstation.announcer.get_rand_alert_sound())
 
 
 /datum/round_event/electrical_storm/start()

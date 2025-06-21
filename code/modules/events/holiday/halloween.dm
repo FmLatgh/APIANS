@@ -20,7 +20,7 @@
 		qdel(Poly)
 
 /datum/round_event/spooky/announce(fake)
-	priority_announce(pick("RATTLE ME BONES!","THE RIDE NEVER ENDS!", "A SKELETON POPS OUT!", "SPOOKY SCARY SKELETONS!", "CREWMEMBERS BEWARE, YOU'RE IN FOR A SCARE!") , "THE CALL IS COMING FROM INSIDE THE HOUSE", SSstation.announcer.get_rand_alert_sound())
+	priority_announce(pick("ITS TIME FOR HALLOWEEENNN! HAHA DONT COME TO MY HOUSE OR ELSE ILL- *CALL ENDED*","CHAT IS THIS REAL", "OCTOBER WILD", "FIVE NIGHTS AT FEDDYs!!!!", "i think galen might be the imposter") , "THE CALL IS COMING FROM INSIDE THE HOUSE", SSstation.announcer.get_rand_alert_sound())
 
 //spooky foods (you can't actually make these when it's not halloween)
 /obj/item/food/cookie/sugar/spookyskull

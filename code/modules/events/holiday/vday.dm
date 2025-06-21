@@ -28,7 +28,7 @@ GLOBAL_LIST(valentine_mobs)
 		var/turf/T = get_turf(H)
 		if(H.mind.assigned_role && SSjob.GetJob(H.mind.assigned_role)) // only give valentines to people who are actually eligible
 			H.put_in_hands(new /obj/item/valentine(T))
-			to_chat(H, span_clown("A message appears in your hand, it looks like it has space to write somebody's name on it!"))
+			to_chat(H, span_clown("you feel a violent urge to write a heart-felt message to someone"))
 		// everyone else gets chocolates and a heart
 		var/b = locate(/obj/item/storage/backpack) in H.contents
 		if(!b)
@@ -72,8 +72,8 @@ GLOBAL_LIST(valentine_mobs)
 	lover.mind.add_antag_datum(V) //These really should be teams but i can't be assed to incorporate third wheels right now
 
 /datum/round_event/valentines/announce(fake)
-	priority_announce("It's Valentine's Day! Give a valentine to that special someone! You've all received complimentary Valentine's cards to send to your potential dates! \
-	Anyone who doesn't pick their date will be assigned one shortly.", sound = SSstation.announcer.get_rand_alert_sound())
+	priority_announce("chat tis February 14th aint that crazy \
+	you cant be going alone so losers will be assigned one.", sound = SSstation.announcer.get_rand_alert_sound())
 
 /obj/item/valentine
 	name = "valentine"
@@ -93,14 +93,14 @@ GLOBAL_LIST(valentine_mobs)
 
 /obj/item/valentine/proc/write_valentine(mob/user)
 	if(!islist(GLOB.valentine_mobs))
-		to_chat(user, span_warning("You feel regret... It's too late now."))
+		to_chat(user, span_warning("HOW DID YOU FORGET TO WRITE OMDS"))
 		used = TRUE
 		return
 	if(used)
 		return
 	var/turf/user_turf = get_turf(user)
 	if(!SSmobs.clients_by_zlevel[user_turf.z])
-		to_chat(user, span_warning("You stop and look around for a moment. Where the hell are you?"))
+		to_chat(user, span_warning("this is what you get"))
 		return
 	//No going back now
 	var/list/clients_on_level = SSmobs.clients_by_zlevel[user_turf.z]
@@ -112,22 +112,22 @@ GLOBAL_LIST(valentine_mobs)
 			continue
 		mob_names["[H.real_name]"] = H
 	if(!LAZYLEN(mob_names))
-		to_chat(user, span_warning("There's no one for you to love..."))
+		to_chat(user, span_warning("whelp... nobody likes u..."))
 		return
 	//Pick names
-	var/picked_name = tgui_input_list(user, "Who are you sending it to?", "Valentines Card", mob_names)
+	var/picked_name = tgui_input_list(user, "VICTIM NAME", "Valentines Card", mob_names)
 	var/mob/living/carbon/human/picked_human = mob_names[picked_name]
 	if(!istype(picked_human))
-		to_chat(user, span_notice("Nothing happens... I don't think it worked."))
+		to_chat(user, span_notice("...But it refused."))
 		return
 	if(!islist(GLOB.valentine_mobs))
-		to_chat(user, span_warning("You feel regret... It's too late now."))
+		to_chat(user, span_warning("wow ok did you forget to write the actual card smh smh"))
 		used = TRUE
 		return
 	if(used)
-		to_chat(user, span_warning("The card has already been used!"))
+		to_chat(user, span_warning("not yoyrs >:("))
 		return
-	to_chat(user, span_notice("The card vanishes out of your hand! Lets hope they got it..."))
+	to_chat(user, span_notice("Me: I hope they got this im sweating bullets right now"))
 	// Assign our side of the date, if they picked us then create the objective
 	GLOB.valentine_mobs[user] = picked_human
 	if(GLOB.valentine_mobs[picked_human] == user)
@@ -141,10 +141,10 @@ GLOBAL_LIST(valentine_mobs)
 	new_card.sender = user
 	new_card.target = picked_human
 	new_card.name = "valentines card from [new_card.sender]"
-	new_card.desc = "A Valentine's card! It is addressed to [new_card.target]."
+	new_card.desc = "19 dolar valentine card. It is addressed to [new_card.target]."
 	new_card.used = TRUE
 	picked_human.equip_to_appropriate_slot(new_card)
-	to_chat(picked_human, span_clown("A magical card suddenly appears!"))
+	to_chat(picked_human, span_clown("WHAT"))
 	qdel(src)
 
 /obj/item/valentine/examine(mob/user)

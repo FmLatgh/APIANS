@@ -18,7 +18,7 @@
 	announceWhen = rand(announceWhen, announceWhen + 50)
 
 /datum/round_event/ghost_role/spider_infestation/announce(fake)
-	priority_announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", ANNOUNCER_ALIENS)
+	priority_announce("This is not a drill. Australian inhabitants that are commonly referred to as \'spiders\' have boarded [station_name()]. were sorry for everyone that has arachnophobia, may god save ur soul", "United States of Galentopia", ANNOUNCER_ALIENS)
 
 /datum/round_event/ghost_role/spider_infestation/spawn_role()
 	var/list/vents = list()

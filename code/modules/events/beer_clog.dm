@@ -21,7 +21,7 @@
 
 
 /datum/round_event/beer_clog/announce()
-	priority_announce("The scrubbers network is experiencing an unexpected surge of pressurized beer. Some ejection of contents may occur.", "Atmospherics alert", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("the beer is under your skin get it out", "Atmospherics alert sent by the United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 
 
 /datum/round_event/beer_clog/start()

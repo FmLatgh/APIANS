@@ -28,7 +28,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announceWhen = 5
 
 /datum/round_event/immovable_rod/announce(fake)
-	priority_announce("What the fuck was that?!", "General Alert", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("hehe", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 
 /datum/round_event/immovable_rod/start()
 	var/datum/round_event_control/immovable_rod/C = control
@@ -40,8 +40,8 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announce_to_ghosts(rod)
 
 /obj/effect/immovablerod
-	name = "immovable rod"
-	desc = "What the fuck is that?"
+	name = "Helix of The End"
+	desc = "This USED to be the Midnight of Green, but now it's just been reduced to a rod. No matter what you do, it won't budge."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "immrod"
 	throwforce = 100

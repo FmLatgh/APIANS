@@ -19,7 +19,7 @@
 		return kill()
 
 /datum/round_event/plasma_decon/announce()
-	priority_announce("We are deploying an experimental plasma decontamination system. Please stand away from the vents and do not breathe the smoke that comes out.", "Central Command Update", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("hey guysss, it's galen back in black, and i wanted to try something a bit more interesting, i hired Doctor Thraxx to help me make this new air refreshener and i think you guys may or may not like it", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 
 /datum/round_event/plasma_decon/start()
 	for(var/obj/machinery/atmospherics/components/unary/vent in vents)

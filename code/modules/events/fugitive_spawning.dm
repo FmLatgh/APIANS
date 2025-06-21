@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(fugitive_backstory_selection)
 		announce_fugitive_pod(leader_spawn, candidates)
 	for(var/obj/effect/mob_spawn/human/fugitive_hunter/spawner as() in spawners)
 		announce_fugitive_pod(spawner, candidates)
-	priority_announce("Unidentified ship detected near the station.", sound = SSstation.announcer.get_rand_alert_sound())
+	priority_announce("Payday 2", sound = SSstation.announcer.get_rand_alert_sound())
 
 /proc/announce_fugitive_pod(obj/effect/mob_spawn/human/fugitive_hunter/spawner, list/candidates)
 	if(length(candidates))

@@ -13,7 +13,7 @@
 	announceWhen	= 1
 
 /datum/round_event/radiation_storm/announce(fake)
-	priority_announce("High levels of radiation detected near the station. Maintenance is best shielded from radiation.", "Anomaly Alert", ANNOUNCER_RADIATION)
+	priority_announce("pretty rad, now go camp vents", "United States of Galentopia", ANNOUNCER_RADIATION)
 	//sound not longer matches the text, but an audible warning is probably good
 
 	// Copied from `radiation_storm.dm`

@@ -20,7 +20,7 @@
 	var/dispatched = 0
 	var/dispatch_type = 0
 	var/bonus_points = 10000
-	var/thanks_msg = "The cargo shuttle should return in five minutes. Have some supply points for your trouble."
+	var/thanks_msg = "Hold on I'll be right back with yer shuttle"
 
 /datum/round_event/shuttle_loan/setup()
 	dispatch_type = pick(HIJACK_SYNDIE, RUSKY_PARTY, SPIDER_GIFT, DEPARTMENT_RESUPPLY, ANTIDOTE_NEEDED, PIZZA_DELIVERY, ITS_HIP_TO, MY_GOD_JC)
@@ -29,27 +29,27 @@
 	SSshuttle.shuttle_loan = src
 	switch(dispatch_type)
 		if(HIJACK_SYNDIE)
-			priority_announce("Cargo: The syndicate are trying to infiltrate your station. If you let them hijack your cargo shuttle, you'll save us a headache.", "CentCom Counter Intelligence", SSstation.announcer.get_rand_alert_sound())
+			priority_announce("oh nah it's the syndicate", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 		if(RUSKY_PARTY)
-			priority_announce("Cargo: A group of angry Russians want to have a party. Can you send them your cargo shuttle then make them disappear?", "CentCom Russian Outreach Program", SSstation.announcer.get_rand_alert_sound())
+			priority_announce("привет", "Россия", SSstation.announcer.get_rand_alert_sound())
 		if(SPIDER_GIFT)
-			priority_announce("Cargo: The Spider Clan has sent us a mysterious gift. Can we ship it to you to see what's inside?", "CentCom Diplomatic Corps", SSstation.announcer.get_rand_alert_sound())
+			priority_announce("O_O spiders", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 		if(DEPARTMENT_RESUPPLY)
-			priority_announce("Cargo: Seems we've ordered doubles of our department resupply packages this month. Can we send them to you?", "CentCom Supply Department", SSstation.announcer.get_rand_alert_sound())
-			thanks_msg = "The cargo shuttle should return in 5 minutes."
+			priority_announce("X2 MODIFIER ACTIVATED", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
+			thanks_msg = "one moment please"
 			bonus_points = 0
 		if(ANTIDOTE_NEEDED)
-			priority_announce("Cargo: Your station has been chosen for an epidemiological research project. Send us your cargo shuttle to receive your research samples.", "CentCom Research Initiatives", SSstation.announcer.get_rand_alert_sound())
+			priority_announce("send samples", "Those People", SSstation.announcer.get_rand_alert_sound())
 		if(PIZZA_DELIVERY)
-			priority_announce("Cargo: It looks like a neighbouring station accidentally delivered their pizza to you instead.", "CentCom Spacepizza Division", SSstation.announcer.get_rand_alert_sound())
-			thanks_msg = "The cargo shuttle should return in 5 minutes."
+			priority_announce("Uncle Galen what happened? PIZZA!!!!!", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
+			thanks_msg = "one moment please"
 			bonus_points = 0
 		if(ITS_HIP_TO)
-			priority_announce("Cargo: One of our freighters carrying a bee shipment has been attacked by eco-terrorists. Can you clean up the mess for us?", "CentCom Janitorial Division", SSstation.announcer.get_rand_alert_sound())
+			priority_announce("can't beelieve it", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
 			bonus_points = 20000 //Toxin bees can be unbeelievably lethal
 		if(MY_GOD_JC)
-			priority_announce("Cargo: We have discovered an active Syndicate bomb near our VIP shuttle's fuel lines. If you feel up to the task, we will pay you for defusing it.", "CentCom Security Division" , SSstation.announcer.get_rand_alert_sound())
-			thanks_msg = "Live explosive ordnance incoming via supply shuttle. Evacuating cargo bay is recommended."
+			priority_announce("please defuse bomb", "???" , SSstation.announcer.get_rand_alert_sound())
+			thanks_msg = "weeeee bomb incoming better run"
 			bonus_points = 45000 //If you mess up, people die and the shuttle gets turned into swiss cheese
 
 /datum/round_event/shuttle_loan/proc/loan_shuttle()

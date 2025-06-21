@@ -8,12 +8,22 @@
 	announceWhen	= 1
 
 /datum/round_event/processor_overload/announce(fake)
-	var/alert = pick(	"Exospheric bubble inbound. Processor overload is likely. Please contact you*%xp25)`6cq-BZZT", \
-						"Exospheric bubble inbound. Processor overload is likel*1eta;c5;'1v¬-BZZZT", \
-						"Exospheric bubble inbound. Processor ov#MCi46:5.;@63-BZZZZT", \
-						"Exospheric bubble inbo'Fz\\k55_@-BZZZZZT", \
-						"Exospheri:%£ QCbyj^j</.3-BZZZZZZT", \
-						"!!hy%;f3l7e,<$^-BZZZZZZZT")
+	var/alert = pick(	"we're waiting every night", \
+						"to finally roam and invite", \
+						"newcomers to play with us", \
+						"for many years we've been all alone", \
+						"we're be forced to be still and play", \
+						"the same songs we know since that day", \
+						"an imposter took our life away", \
+						"now we're stuck here to decay", \
+						"please let us get in, don't lock us away", \
+						"we're not like what you're thinking", \
+						"we are poor little souls, who lost all control", \
+						"and we're forced here to take that role", \
+						"we've been all alone, stuck in our little zone", \
+						"since 1987", \
+						"join us, be our friend, or just be stuck and defend", \
+						"after all you only got five nights at freddy's")
 
 	for(var/mob/living/silicon/ai/A as anything in GLOB.ai_list)
 	//AIs are always aware of processor overload

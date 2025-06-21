@@ -33,7 +33,7 @@
 		if(100000 to INFINITY)
 			severity = "extreme; emergency action is likely to be required even if coolant loop is fine. Turn off the emitters and make sure the loop is properly cooling gases."
 	if(power > 20000 || prob(round(power/200)))
-		priority_announce("Supermatter surge detected. Estimated severity is [severity]", "Anomaly Alert", SSstation.announcer.get_rand_alert_sound())
+		priority_announce("I made the supermatter. It was hard for me to put the pieces together. Your situation is pretty [severity]", "Edwin", SSstation.announcer.get_rand_alert_sound())
 
 /datum/round_event/supermatter_surge/start()
 	var/obj/machinery/power/supermatter_crystal/supermatter = GLOB.main_supermatter_engine

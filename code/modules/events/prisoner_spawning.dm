@@ -22,7 +22,7 @@
 	var/result = spawn_prisoners(landing_turf, candidates, spawned_mobs)
 	if(result != SUCCESSFUL_SPAWN)
 		return result
-	priority_announce("Due to overcrowding in a nearby security facility, a group of maximum security prisoners have been sent to your Station. Please ensure they are well taken care of and secured until the end of the shift.", "Security Alert", SSstation.announcer.get_rand_report_sound())
+	priority_announce("i hired these death row inmates to look at you (they are not to be killed)", "United States of Galentopia", SSstation.announcer.get_rand_report_sound())
 	return SUCCESSFUL_SPAWN
 
 /proc/spawn_prisoners(turf/landing_turf, list/candidates, list/spawned_mobs)

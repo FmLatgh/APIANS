@@ -23,7 +23,7 @@
 		if(A.stat != DEAD)
 			living_mimites = TRUE
 	if(living_mimites || fake)
-		priority_announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", ANNOUNCER_ALIENS)
+		priority_announce("i dunno what's about to come for you but it's not friendly", "United States of Galentopia", ANNOUNCER_ALIENS)
 
 /datum/round_event/mimite_infestation/start()
 	var/list/vents = list()
@@ -62,4 +62,4 @@
 		for(var/mob/living/simple_animal/hostile/mimite/M in GLOB.all_mimites)
 			M.eventongoing = FALSE
 	else
-		priority_announce("Sensors are no-longer detecting an outbreak of Mimites, well done crew!", "Lifesign Alert", SSstation.announcer.get_rand_alert_sound())
+		priority_announce("thank god you killed them", "United States of Galentopia", SSstation.announcer.get_rand_alert_sound())
